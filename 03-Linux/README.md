@@ -1,34 +1,94 @@
-# 03-Linux
-
 # 🐧 03-Linux
 
 ## Overview
 
-This folder contains the Linux concepts, commands and practical skills I have learned during my cybersecurity journey.
+This folder documents the Linux concepts, commands and practical skills I have learned since beginning my cybersecurity journey in **May 2026**.
+
+The knowledge documented here was primarily gained through **Hack The Box Academy**, where I completed the **Linux Fundamentals** and **Introduction to Bash Scripting** modules, together with practical exercises in **OverTheWire Bandit**.
+
+Linux is one of the most widely used operating systems in cybersecurity. It powers servers, cloud infrastructure and many security tools, making Linux proficiency an essential skill for penetration testing, digital forensics, system administration and security operations.
+
+---
+
+# 📅 Learning Journey
+
+I began learning Linux in **May 2026** after completing my networking studies on Hack The Box Academy.
+
+During my studies I learned how to navigate the Linux operating system, manage files and directories, understand file permissions, connect securely using SSH, automate tasks with Bash scripting and solve practical Linux challenges through OverTheWire Bandit.
+
+These practical exercises strengthened my understanding of the Linux command line and prepared me for more advanced cybersecurity topics.
+
+---
+
+# 🎓 Learning Platform
+
+- Hack The Box Academy
+- OverTheWire Bandit
+
+---
+
+# ✅ Modules Completed
+
+- Linux Fundamentals
+- Introduction to Bash Scripting
+
+---
+
+# 🎯 Learning Objectives
+
+The objectives of these modules were to:
+
+- Understand the Linux operating system.
+- Learn the Linux file system.
+- Navigate using the command line.
+- Manage files and directories.
+- Understand Linux permissions.
+- Learn secure remote access using SSH.
+- Understand SSH key authentication.
+- Learn Bash scripting fundamentals.
+- Develop Linux skills required for cybersecurity.
+
+---
+
+# 📚 Topics Covered
 
 ## Linux
 
-Linux is an open-source operating system widely used in servers, cloud computing and cybersecurity. It provides powerful command-line tools for system administration, penetration testing and automation.
+Linux is a free and open-source operating system widely used in cybersecurity, cloud computing, servers and enterprise environments.
+
+Most penetration testing distributions, including Kali Linux and Parrot OS, are Linux-based.
+
+---
 
 ## Linux File System
 
-The Linux file system is organized in a hierarchical structure starting from the root directory (`/`).
+The Linux file system is organized in a hierarchical structure beginning at the root directory (`/`).
 
-Some important directories include:
+Important directories include:
 
-`/home` stores user files.
+`/home` – User home directories.
 
-`/etc` contains system configuration files.
+`/etc` – System configuration files.
 
-`/var` stores logs and variable data.
+`/var` – Log files and variable data.
 
-`/tmp` stores temporary files.
+`/tmp` – Temporary files.
 
-`/bin` contains essential user commands.
+`/bin` – Essential user commands.
 
-`/usr` contains user applications and utilities.
+`/usr` – User applications and utilities.
+
+`/root` – Home directory for the root user.
+
+`/dev` – Device files.
+
+`/proc` – Process and kernel information.
+
+---
 
 ## Basic Linux Commands
+
+### Navigation
 
 ```bash
 pwd
@@ -46,19 +106,23 @@ Lists files and directories.
 ls -la
 ```
 
-Lists all files, including hidden files, with detailed information.
+Lists all files including hidden files.
 
 ```bash
 cd
 ```
 
-Changes the current directory.
+Changes directories.
+
+---
+
+### File Management
 
 ```bash
 mkdir
 ```
 
-Creates a new directory.
+Creates a directory.
 
 ```bash
 rmdir
@@ -70,7 +134,7 @@ Removes an empty directory.
 touch
 ```
 
-Creates an empty file.
+Creates a new file.
 
 ```bash
 cp
@@ -82,37 +146,45 @@ Copies files or directories.
 mv
 ```
 
-Moves or renames files and directories.
+Moves or renames files.
 
 ```bash
 rm
 ```
 
-Deletes files or directories.
+Removes files or directories.
+
+---
+
+### Viewing Files
 
 ```bash
 cat
 ```
 
-Displays the contents of a file.
+Displays file contents.
 
 ```bash
 less
 ```
 
-Views large files one page at a time.
+Views large files.
 
 ```bash
 head
 ```
 
-Displays the first lines of a file.
+Displays the beginning of a file.
 
 ```bash
 tail
 ```
 
-Displays the last lines of a file.
+Displays the end of a file.
+
+---
+
+### Searching
 
 ```bash
 find
@@ -126,17 +198,9 @@ grep
 
 Searches for specific text inside files.
 
-```bash
-chmod
-```
+---
 
-Changes file permissions.
-
-```bash
-chown
-```
-
-Changes file ownership.
+### User Information
 
 ```bash
 whoami
@@ -156,23 +220,45 @@ history
 
 Displays previously executed commands.
 
+---
+
 ## File Permissions
 
-Linux permissions determine who can read, write and execute a file.
+Linux uses file permissions to determine who can read, write and execute files.
 
 Permission types include:
 
-Read (r)
+- Read (r)
+- Write (w)
+- Execute (x)
 
-Write (w)
+Permissions are assigned to:
 
-Execute (x)
+- Owner
+- Group
+- Others
 
-Permissions apply to the owner, group and others.
+Common permission commands include:
 
-## SSH
+```bash
+chmod
+```
 
-Secure Shell (SSH) allows secure remote access to another computer over a network.
+Changes file permissions.
+
+```bash
+chown
+```
+
+Changes file ownership.
+
+Understanding permissions is essential for securing Linux systems.
+
+---
+
+## SSH (Secure Shell)
+
+SSH allows encrypted remote access to Linux systems.
 
 Example:
 
@@ -186,37 +272,152 @@ Using a private key:
 ssh -i sshkey.private bandit14@localhost -p 2220
 ```
 
+SSH provides secure authentication and encrypted communication between systems.
+
+---
+
 ## SSH Key Management
+
+Generate a new SSH key pair:
 
 ```bash
 ssh-keygen
 ```
 
-Generates a new SSH key pair.
+Extract the public key:
 
 ```bash
 ssh-keygen -y -f sshkey.private
 ```
 
-Extracts the public key from a private key.
+I learned the difference between public and private SSH keys and how key-based authentication improves security.
 
-## Base64
+---
 
-Base64 is an encoding method used to convert binary data into text. It is commonly used in web applications, email and authentication.
+## Base64 Encoding
 
-Decode a Base64 string:
+Base64 converts binary data into text and is commonly used in web applications, email and authentication.
+
+Decode Base64:
 
 ```bash
 base64 -d filename
 ```
 
+Understanding Base64 is useful when analysing encoded data during security assessments.
+
+---
+
+## Bash Scripting
+
+Bash scripting allows Linux users to automate repetitive tasks.
+
+During the Hack The Box Academy module I learned how to:
+
+- Create Bash scripts.
+- Use variables.
+- Accept user input.
+- Work with loops.
+- Use conditional statements.
+- Automate command execution.
+- Improve efficiency through scripting.
+
+---
+
 ## OverTheWire Bandit
 
-I completed Bandit Level 13.
+As part of my practical Linux training I completed **Bandit Level 13**.
 
-During this level I learned how to authenticate using SSH private keys, connect securely to another account and understand the difference between public and private SSH keys.
+During these challenges I learned how to:
 
-## Skills Gained
+- Navigate Linux systems.
+- Search for hidden files.
+- Work with permissions.
+- Read sensitive files.
+- Decode Base64 data.
+- Connect using SSH.
+- Authenticate using SSH private keys.
+- Understand the difference between public and private SSH keys.
 
-I learned how to navigate the Linux file system, manage files and directories, work with permissions, search files, connect to remote systems using SSH, manage SSH keys, decode Base64 data and solve Linux challenges in OverTheWire Bandit.
-Notes for 03-Linux go here.
+These practical exercises reinforced the Linux concepts learned in Hack The Box Academy.
+
+---
+
+# 🛠️ Practical Skills Developed
+
+During these modules I developed practical skills in:
+
+- Navigating the Linux operating system.
+- Managing files and directories.
+- Understanding Linux file permissions.
+- Searching for files.
+- Searching file contents.
+- Using Linux command-line tools.
+- Connecting securely using SSH.
+- Managing SSH keys.
+- Decoding Base64 data.
+- Writing basic Bash scripts.
+- Automating repetitive tasks.
+- Solving Linux-based security challenges.
+
+---
+
+# 💻 Tools and Technologies
+
+During this stage of my learning journey I used:
+
+- Ubuntu Linux
+- Kali Linux
+- Hack The Box Academy
+- OverTheWire Bandit
+- Bash
+- OpenSSH
+- Git
+- GitHub
+- Visual Studio Code
+- Windows Terminal
+
+---
+
+# 🌍 Real-World Applications
+
+The Linux knowledge gained during these modules is directly applicable to:
+
+- Penetration Testing
+- Security Operations Centers (SOC)
+- Cloud Computing
+- Server Administration
+- Digital Forensics
+- Incident Response
+- Malware Analysis
+- System Administration
+- Automation
+
+---
+
+# ✅ Best Practices
+
+- Follow the principle of least privilege.
+- Use strong passwords and SSH keys.
+- Keep Linux systems updated.
+- Restrict unnecessary services.
+- Secure file permissions.
+- Regularly monitor log files.
+- Automate repetitive administrative tasks.
+- Back up important system data.
+
+---
+
+# 📖 Source
+
+- Hack The Box Academy – Linux Fundamentals
+- Hack The Box Academy – Introduction to Bash Scripting
+- OverTheWire – Bandit
+
+---
+
+# 📌 Summary
+
+Completing the **Linux Fundamentals** and **Introduction to Bash Scripting** modules, together with practical exercises in **OverTheWire Bandit**, provided me with a strong foundation in Linux system administration and command-line usage.
+
+I learned how to navigate Linux systems, manage files and permissions, connect securely using SSH, automate tasks with Bash scripting and solve practical Linux challenges. These skills form a critical foundation for penetration testing, web security, digital forensics and advanced cybersecurity studies.
